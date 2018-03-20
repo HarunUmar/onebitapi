@@ -16,8 +16,9 @@ end
 	def img_url
  		#self.inspect
  		Gambarpost.find(16).picture_medium
- 		
  	end
+
+ 
 
 
 
