@@ -1,6 +1,6 @@
 class UserSerializer < ActiveModel::Serializer
   has_many :posts
-  attributes :id, :nama, :url_foto
+  attributes :id, :nama, :id_fb
 
   def posts
   	object.posts.limit(1).order(id: :desc)

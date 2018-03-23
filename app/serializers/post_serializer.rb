@@ -35,7 +35,7 @@ class PostSerializer < ActiveModel::Serializer
   end
 
   def waktu
-    time_ago_in_words(object.created_at) +' Yang lalu'
+    time_ago_in_words(object.created_at)
   end
 
 
