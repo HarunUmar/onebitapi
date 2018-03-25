@@ -1,5 +1,5 @@
 class Users::UsersController < ApplicationController
-
+before_action :set_content_type
 	def index
 		@user = User.offset(params[:offset]).limit(params[:limit]).order(created_at: :desc)
 		render json: @user
@@ -15,6 +15,13 @@ class Users::UsersController < ApplicationController
 
 	end
 	
+	private def set_content_type
+ 			
+ 		headers['Content-Type'] = 'multipart/form-data'
+ 		
+ 	end
+ 
+ 
 
  
 	private def user_params
