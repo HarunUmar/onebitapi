@@ -20,7 +20,7 @@ class Users::UsersController < ApplicationController
 	
 		else 
 
-		render json: {'success' =>1, 'id' => @userx[0][:id_fb]}
+		render json: {'success' =>1, 'id' => @userx[0][:id]}
 
 		end
 
