@@ -40,8 +40,8 @@ class Users::UsersController < ApplicationController
 	end
 
 	def my_checkpoint 
-		@user = User.where(id: params[:id])
-		render json: @user
+		@post = Post.where(user_id: params[:id]).order(created_at: :desc).limit(1)
+		render json: @post
 		
 	end
 	

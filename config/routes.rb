@@ -17,7 +17,7 @@ Rails.application.routes.draw do
  	post '/', to: 'users#create'
  	get '/:offset/:limit', to: 'users#index'
  	get 'cek/fb/:id_fb', to: 'users#cek_daftar'
- 	get 'my_checkpoint/:id', to: 'users#my_checkpoint'
+ 	get 'my/checkpoint/:id', to: 'users#my_checkpoint'
 
  end
  
