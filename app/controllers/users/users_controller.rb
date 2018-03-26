@@ -1,5 +1,6 @@
 class Users::UsersController < ApplicationController
-before_action :set_content_type
+	
+	before_action :set_content_type ,:only => :create
 	def index
 		@user = User.offset(params[:offset]).limit(params[:limit]).order(created_at: :desc)
 		render json: @user
@@ -14,17 +15,31 @@ before_action :set_content_type
   		end
 
 	end
-	
-	private def set_content_type
- 			
- 		headers['Content-Type'] = 'multipart/form-data'
- 		
- 	end
- 
- 
 
+	def cek_daftar
+		@user = User.where(id_fb: params[:id_fb])
+		if @user.empty?
+
+			render json: {'success' =>0}
+		else 
+			render json: {'success' => 1, 'id_fb' =>@user[0]['id_fb']}
+		end
+
+		
+	end
+	
  
 	private def user_params
     	params.permit(:no_ktp,:nama,:hp,:url_foto,:username,:status,:skpd,:id_fb,:token_fb)
  	 end
+
+
+ 	private def set_content_type
+ 			
+ 		headers['Content-Type'] = 'multipart/form-data'
+ 		
+ 	end
+ 	
+
+ 
 end

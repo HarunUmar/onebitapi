@@ -1,6 +1,8 @@
 
 class Posts::PostsController < ApplicationController
-	before_action :set_content_type
+	before_action :set_content_type , :only => :create
+
+
 	def index
 		@post = Post.offset(params[:offset]).limit(params[:limit]).order(created_at: :desc)
 		render json: @post, adduser: true, addcommentpost: true, methods =>[:picture_medium]
@@ -11,7 +13,6 @@ class Posts::PostsController < ApplicationController
 
 
 	def create
-
 
     	@post = Post.new(post_params)
  	    if @post.save

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
  namespace :users do 
  	post '/', to: 'users#create'
  	get '/:offset/:limit', to: 'users#index'
+ 	get 'cek/fb/:id_fb', to: 'users#cek_daftar'
 
  end
  
