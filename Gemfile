@@ -49,6 +49,7 @@ group :deployment do
 	gem 'capistrano-bundler', '~> 1.3'	
 	gem 'capistrano-rails', '~> 1.3', '>= 1.3.1'
 	gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.3'
+    gem 'capistrano-rails-collection'
 end
 
 

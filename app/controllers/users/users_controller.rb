@@ -7,13 +7,24 @@ class Users::UsersController < ApplicationController
 	end
 
 	def create
-    	@user = User.new(user_params)
- 	    if @user.save
-  			render json: {'success' =>1, 'message' => 'berhasil', 'id' => @user[:id]},status: :ok
-  		else 
-  			render json: {'success' =>0, 'message' => @user.errors.full_messages},status: :ok
-  		end
 
+		@userx = User.where(id_fb: params[:id_fb])
+		if @userx.empty?
+
+			@user = User.new(user_params)
+ 	   			 if @user.save
+  					render json: {'success' =>1, 'message' => 'berhasil', 'id' => @user[:id]},status: :ok
+  				else 
+  					render json: {'success' =>0, 'message' => @user.errors.full_messages},status: :ok
+  				end
+	
+		else 
+
+		render json: {'success' =>1, 'id' => @userx[0][:id_fb]}
+
+		end
+
+    
 	end
 
 	def cek_daftar
