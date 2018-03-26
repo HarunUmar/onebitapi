@@ -38,6 +38,12 @@ class Users::UsersController < ApplicationController
 
 		
 	end
+
+	def my_checkpoint 
+		@user = User.where(id: params[:id])
+		render json: @user
+		
+	end
 	
  
 	private def user_params
